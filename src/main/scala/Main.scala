@@ -19,7 +19,7 @@ object Main {
       .load(conf.wordsPath())
       .as[String]
 
-    new LemmatizationJob(conf.dictPath(), conf.affixPath())
+    LemmatizationJob(conf.dictPath(), conf.affixPath())
       .run(wordsDf)
       .show(false)
   }

@@ -24,7 +24,7 @@ class LemmatizationJobTest extends AnyFunSuite {
     val expectedDf = spark.createDataset(Seq("auteur", "livre+livrer", "lecture"))
 
     // When
-    val result = new LemmatizationJob(dictPath, affixPath).run(wordsDf)
+    val result = LemmatizationJob(dictPath, affixPath).run(wordsDf)
 
     // Then
     assert(areDfEqual(expectedDf, result))
@@ -34,9 +34,5 @@ class LemmatizationJobTest extends AnyFunSuite {
     val expectedCount = expected.count()
     val actualCount = actual.count()
     expectedCount == actualCount && expected.intersect(actual).count() == expectedCount
-  }
-
-  test("Should livre have two lemmas : livre and livrer") {
-    assertResult("livre+livrer")(LemmatizationJob.toLemmas("livre", dictPath, affixPath))
   }
 }
