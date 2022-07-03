@@ -1,3 +1,6 @@
+package com.eso.wordslematizer
+
+import com.eso.wordslematizer.LemmatizationJob
 import org.apache.spark.sql.{Dataset, SparkSession}
 import org.scalatest.funsuite.AnyFunSuite
 
@@ -8,7 +11,7 @@ class LemmatizationJobTest extends AnyFunSuite {
     .appName("unit tests")
     .getOrCreate()
 
-  import spark.implicits._
+  import spark.implicits.*
 
   val dictPath = "src/test/resources/fr-classique.dic"
   val affixPath = "src/test/resources/fr-classique.aff"

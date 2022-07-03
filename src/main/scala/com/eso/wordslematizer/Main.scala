@@ -1,5 +1,7 @@
+package com.eso.wordslematizer
+
 import org.apache.spark.sql.SparkSession
-import org.rogach.scallop._
+import org.rogach.scallop.*
 
 object Main {
 
@@ -8,10 +10,10 @@ object Main {
 
     implicit val spark: SparkSession = SparkSession.builder()
       .master("local[*]")
-      .appName("words-analyzer")
+      .appName("words-lemmatizer")
       .getOrCreate()
 
-    import spark.implicits._
+    import spark.implicits.*
 
     val wordsDf = spark
       .read

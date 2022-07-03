@@ -1,13 +1,11 @@
-import com.atlascopco.hunspell.Hunspell
-import org.apache.spark.sql.{Dataset, SparkSession}
+package com.eso.wordslematizer
 
-import scala.jdk.CollectionConverters._
-import scala.util.Using
+import org.apache.spark.sql.{Dataset, SparkSession}
 
 case class LemmatizationJob(dictionaryPath: String, affixPath: String) {
 
   def run(words: Dataset[String])(implicit spark: SparkSession): Dataset[String] = {
-    import spark.implicits._
+    import spark.implicits.*
     val lemmatizer = Lemmatizer(dictionaryPath, affixPath)
     words.map(lemmatizer.toLemmas)
   }

@@ -1,3 +1,6 @@
+package com.eso.wordslematizer
+
+import com.eso.wordslematizer.Lemmatizer
 import org.scalatest.funsuite.AnyFunSuite
 
 class LemmatizerTest extends AnyFunSuite {

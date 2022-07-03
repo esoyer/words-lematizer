@@ -1,6 +1,7 @@
-import com.atlascopco.hunspell.Hunspell
+package com.eso.wordslematizer
 
-import scala.jdk.CollectionConverters.*
+import com.atlascopco.hunspell.Hunspell
+import scala.jdk.CollectionConverters._
 
 case class Lemmatizer(dictionaryPath: String, affixPath: String) {
 
