@@ -18,12 +18,7 @@ class LemmatizationJobTest extends AnyFunSuite {
 
   test("Should construct dataset of lemmas given a collection of words") {
     // Given
-    val wordsDf = spark
-      .read
-      .format("csv")
-      .load("src/test/resources/words.csv")
-      .as[String]
-
+    val wordsDf = spark.createDataset(Seq("auteurs", "livre", "lecture"))
     val expectedDf = spark.createDataset(Seq("auteur", "livre+livrer", "lecture"))
 
     // When
